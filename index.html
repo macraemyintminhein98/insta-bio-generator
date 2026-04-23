@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Instagram Bio Generator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg { background: linear-gradient(to right, #6EE7B7, #3B82F6); }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-md">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-6">Craft Your Perfect Bio</h1>
+        <p class="text-center text-gray-600 mb-8">Generate creative Instagram bios with AI.</p>
+        <form id="bio-form" class="space-y-4">
+            <div>
+                <label for="keywords" class="block text-sm font-medium text-gray-700">Keywords/Interests</label>
+                <input type="text" id="keywords" name="keywords" placeholder="e.g., travel, food, tech" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+            </div>
+            <div>
+                <label for="tone" class="block text-sm font-medium text-gray-700">Desired Tone</label>
+                <select id="tone" name="tone" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm rounded-md">
+                    <option>Professional</option>
+                    <option>Humorous</option>
+                    <option>Inspirational</option>
+                    <option>Casual</option>
+                </select>
+            </div>
+            <button type="submit" class="w-full gradient-bg text-white py-2 px-4 rounded-md hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-150 ease-in-out">
+                Generate Bio
+            </button>
+        </form>
+        <div id="result" class="mt-6 p-4 bg-gray-100 rounded-md text-gray-800 hidden">
+            <h2 class="font-semibold mb-2">Your AI-Generated Bio:</h2>
+            <p id="generated-bio" class="whitespace-pre-wrap"></p>
+        </div>
+        <div class="mt-6 text-center text-sm text-gray-500">
+            Powered by AI. Secure payments via Stripe.
+        </div>
+    </div>
+    <script>
+        // Placeholder for actual API integration and Stripe checkout
+        document.getElementById('bio-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const keywords = document.getElementById('keywords').value;
+            const tone = document.getElementById('tone').value;
+            // In a real app, this would send data to a backend API
+            // which then calls the LLM and processes payment via Stripe.
+            document.getElementById('generated-bio').textContent = `[AI-generated bio based on keywords: '${keywords}' and tone: '${tone}'. This is a placeholder. Real generation and Stripe payment would happen here.]`;
+            document.getElementById('result').classList.remove('hidden');
+            // Redirect to Stripe for payment after this (not implemented in static HTML)
+        });
+    </script>
+</body>
+</html>
